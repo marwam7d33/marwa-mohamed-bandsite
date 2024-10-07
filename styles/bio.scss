@@ -1,0 +1,467 @@
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Avenir";
+  font-weight: 400;
+  font-size: 0.8125rem;
+  color: $BandSite-Black;
+}
+
+.header {
+  // &__navlinks, &__logo
+  @include mobile {
+    @include mobile-only-header;
+    background-color: #323232;
+    text-decoration: none;
+    font-size: 1.125rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding: 1.25rem;
+  }
+  &__logo {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-left: 1.25rem;
+    }
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  &__navlinks {
+    display: flex;
+  }
+}
+
+.header__navlinks a {
+  @include mobile {
+    text-align: center;
+    display: flex;
+    color: #afafaf;
+    text-decoration: none;
+    padding: 0.625rem 2.9375rem;
+    margin: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover {
+      color: $White;
+      border-bottom: 0.125rem white solid;
+    }
+  }
+  @include tablet {
+    @include main-subheader;
+    font-size: 21px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+  @include desktop {
+    font-size: 0.875rem;
+    padding-right: 0;
+  }
+}
+
+.hero__image {
+  width: 100%;
+  height: 50vh;
+  background-image: url(/assets/Images/hero-bio.jpg);
+  background-size: cover;
+  display: flex;
+  position: relative;
+  background-position: center;
+  @include tablet {
+    display: flex;
+    height: 31.25rem;
+    flex-direction: column;
+    justify-content: center;
+  }
+  @include desktop {
+    height: 37.5rem;
+  }
+  &__overlay {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $BandSite-Black;
+    opacity: 50%;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__title {
+    @include mobile-subheader;
+    font-weight: 400;
+    display: flex;
+    font-size: 1.9375rem;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    color: #ffffff;
+    position: relative;
+    top: 0.25rem;
+    left: 0.625rem;
+    z-index: 2;
+
+    @include tablet {
+      @include main-header;
+      font-weight: 600;
+      padding-left: 20px;
+      position: relative;
+      top: 0.25rem;
+      left: 0.625rem;
+    }
+    @include desktop {
+      position: relative;
+      top: -3.0625rem;
+      left: 6.5625rem;
+    }
+  }
+}
+
+.about {
+  @include mobile {
+    @include mobile-section-header;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+
+    &__image {
+      position: relative;
+      left: -2rem;
+      width: 100%;
+      margin: 0rem;
+
+      @include tablet {
+        width: 70vw;
+        margin: 0 auto;
+      }
+      &__container {
+        @include mobile {
+          padding-left: 3.875rem;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    }
+    &__text {
+      @include mobile {
+        @include mobile-subheader;
+        color: $BandSite-Black;
+        position: relative;
+        left: -1.9375rem;
+        width: 100%;
+        font-weight: 600;
+      }
+      @include tablet {
+        width: 70vw;
+        font-size: 1.85rem;
+        line-height: 3rem;
+        font-weight: 600;
+      }
+      @include desktop {
+        width: 61vw;
+        font-size: 26px;
+        line-height: 3rem;
+        font-weight: 600;
+      }
+    }
+
+    &__lowertext {
+      @include tablet {
+        line-height: 10px;
+        font-weight: 600;
+        font-size: 24px;
+      }
+      @include desktop {
+        line-height: 10px;
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__title {
+    @include mobile {
+      @include mobile-subheader;
+      position: relative;
+      left: -1.9375rem;
+      color: #323232;
+    }
+    @include tablet {
+      @include main-header;
+      font-weight: 600;
+      display: flex;
+    }
+  }
+}
+
+.content {
+  @include mobile {
+    position: relative;
+    left: 0.875rem;
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+    // content title
+    &__title {
+      @include mobile-section-header;
+
+      @include tablet {
+        font-size: 1.9375rem;
+        line-height: 2.75rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        // padding-left: 3.5rem;
+        color: black;
+      }
+
+      @include desktop {
+        font-size: 25px;
+        color: black;
+        font-weight: 600;
+      }
+    }
+
+    // content paragraph
+    &__paragraph {
+      @include mobile {
+        @include mobile-body;
+      }
+
+      @include tablet {
+        font-size: 1rem;
+        width: 100%;
+        line-height: 1.5rem;
+        font-weight: 400;
+        padding-right: 2.5rem;
+      }
+    }
+  }
+
+  @include tablet {
+    display: flex;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__container {
+    @include tablet {
+      display: flex;
+      padding-left: 9rem;
+      width: 85%;
+      flex-direction: column;
+    }
+  }
+}
+
+// gallery styling
+.gallery {
+  @include mobile {
+    display: flex;
+    gap: 0.625rem;
+    justify-content: center;
+    // padding: 1.25rem;
+    background-color: rgba(175, 175, 175, 0.1019607843);
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    @include tablet {
+      padding: 2rem;
+      justify-content: center;
+    }
+
+    &__title {
+      @include mobile-subheader;
+
+      @include tablet {
+        @include main-subheader;
+      }
+    }
+
+    &__item {
+      display: flex;
+      flex-wrap: wrap;
+
+      //   gallery item tablet styling
+      @include tablet {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      @include desktop {
+        width: 80%;
+      }
+    }
+  }
+  &__img {
+    display: flex;
+    padding-bottom: 1.25rem;
+    gap: 10%;
+    object-fit: cover;
+    height: 8.1875rem;
+    width: 60%;
+    filter: grayscale(100%);
+
+    @include tablet {
+      display: flex;
+      padding: 0.5rem;
+      height: 8.1875rem;
+      flex-direction: row;
+      width: 30%;
+    }
+    &:hover {
+      filter: grayscale(0%);
+    }
+  }
+}
+
+// FOOTER STYLING
+.footer {
+  @include tablet {
+    position: relative;
+    // width: 100%;
+    display: flex;
+    font-size: 0.625rem;
+    line-height: 1.25rem;
+  }
+
+  @include mobile-footer;
+  display: flex;
+  background-color: #323232;
+  color: #ffffff;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: flex-start;
+  text-decoration: none;
+  padding: 1.25rem;
+
+  &__logo {
+    padding-top: 20px;
+    position: relative;
+    left: 0;
+    top: 0.875rem;
+
+    @include tablet {
+      position: absolute;
+      top: 3rem;
+      left: 35rem;
+    }
+  }
+
+  &__legal {
+    padding-top: 10px;
+    display: flex;
+    font-size: 10px;
+
+    @include tablet {
+      font-weight: 400;
+      font-size: 0.875rem;
+      position: relative;
+      left: -12rem;
+      top: 0.625rem;
+    }
+  }
+
+  &__email {
+    text-decoration: none;
+    color: $White;
+  }
+
+  &__icons {
+    padding-right: 1.25rem;
+    @include tablet {
+      font-size: 1.25rem;
+    }
+  }
+  &__address {
+    @include tablet {
+      position: relative;
+      left: -25px;
+      display: flex;
+      flex-direction: column;
+      font-weight: 400;
+      font-size: 14px;
+      @include main-footer;
+    }
+    h3 {
+      @include tablet {
+        // font-weight: 600;
+        @include main-footer;
+      }
+    }
+  }
+  &__title {
+    @include tablet {
+      @include main-subheader;
+      font-weight: 600;
+      font-size: 2.5625rem;
+      padding-right: 5.125rem;
+    }
+  }
+  &__socials {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      padding-left: 20px;
+    }
+  }
+  &__company p {
+    @include tablet;
+    padding: 0;
+  }
+
+  &__mid-section {
+    @include mobile {
+      font-weight: 400;
+
+      @include tablet {
+        gap: 7%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

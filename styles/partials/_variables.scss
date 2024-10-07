@@ -1,0 +1,89 @@
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
+$mobile-breakpoint: 320px;
+
+// setting Avenir fonts
+@font-face {
+    font-family: 'Avenir';
+    src: url(/assets/Font/AvenirNextLTPro-Bold.otf);
+    font-weight: 700;
+}
+@font-face {
+    font-family: 'Avenir';
+    src: url(/assets/Font/AvenirNextLTPro-Demi.otf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url(/assets/Font/AvenirNextLTPro-Regular.otf);
+    font-weight: 400;
+}
+
+// color variables 
+ 
+$BandSite-Black :#323232;
+$Silver:#AFAFAF;
+$BandSite-DarkBlack: #000000;
+$Mercury: #E1E1E1;
+$Alabaster:#FAFAFA;
+$White: #FFFFFF; 
+
+// text styles
+@mixin section-header {
+    font-size: 31px;
+    line-height: 0px;
+    font-weight: 600;
+        @content;
+    
+}
+
+// DESKTOP & TABLET TEXT STYLES MOBILE TEXT STYLES
+// Text size: 60px | Line height: 68px | Text weight: Bold 700
+// Page Header
+@mixin main-header {
+    font-size: 60px;
+    line-height: 68px;
+    font-weight: 700;
+}
+// Text size: 36px | Line height: 44px | Text weight: 700
+// Section Header
+@mixin main-section-header {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 700;
+}
+
+// Text size: 24px | Line height: 32px | Text weight: Demi 600
+// Subheader
+
+@mixin main-subheader {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+// Text size: 14px | Line height: 22px | Text weight: Regular 400
+// Body Copy
+@mixin main-body {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+// Text size: 14px | Line height: 20px | Text weight: Regular 400
+// Footer Copy
+@mixin main-footer {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+// Text size: 12px | Line height: 20px | Text weight: Bold 700
+@mixin main-button {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+
+
