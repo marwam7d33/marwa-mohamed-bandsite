@@ -13,7 +13,6 @@ body {
 }
 
 .header {
-  // &__navlinks, &__logo
   @include mobile {
     @include mobile-only-header;
     background-color: #323232;
@@ -26,7 +25,7 @@ body {
   }
   @include tablet {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     align-content: flex-start;
     padding: 1.25rem;
@@ -62,9 +61,13 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: $White;
-      border-bottom: 0.125rem white solid;
+      border-bottom: 2px solid #ffffff;
+      content: "";
+      position: relative;
+      inset: 0;
     }
   }
   @include tablet {

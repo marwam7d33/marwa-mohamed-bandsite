@@ -45,7 +45,7 @@ body {
 @media screen and (min-width: 768px) {
   .header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     align-content: flex-start;
     padding: 1.25rem;
@@ -82,9 +82,12 @@ body {
     align-items: center;
     justify-content: space-between;
   }
-  .header__navlinks a:hover {
-    color: #FFFFFF;
-    border-bottom: 0.125rem white solid;
+  .header__navlinks a:hover, .header__navlinks a:focus {
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    content: "";
+    position: relative;
+    inset: 0;
   }
 }
 @media screen and (min-width: 768px) {
@@ -490,7 +493,7 @@ body {
 }
 .footer__email {
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .footer__icons {
   padding-right: 1.25rem;
