@@ -417,6 +417,7 @@ body {
 }
 .gallery__img {
   display: flex;
+  flex-grow: 1;
   padding-bottom: 1.25rem;
   gap: 10%;
   -o-object-fit: cover;
@@ -558,4 +559,54 @@ body {
     justify-content: center;
     flex-wrap: wrap;
   }
+}
+
+.forms {
+  line-height: 36px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "avenir";
+}
+.forms__container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+}
+.forms__avatar {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.forms__content {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.forms__input-container {
+  color: #afafaf;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding-bottom: 20px;
+}
+.forms__input {
+  padding-top: 0;
+  width: 80%;
+  border-radius: 4px;
+  background-color: rgba(175, 175, 175, 0.1607843137);
+  padding: 12px;
+}
+.forms__name {
+  padding-bottom: 10px;
+}
+.forms__button {
+  color: white;
+  font-weight: 600;
+  background-color: #323232;
+  border-radius: 4px;
+  width: 80%;
 }/*# sourceMappingURL=bio.css.map */

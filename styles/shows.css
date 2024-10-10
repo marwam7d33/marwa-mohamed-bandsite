@@ -185,6 +185,7 @@ html {
 @media screen and (min-width: 768px) and (min-width: 1280px) {
   .hero__title__container {
     padding-left: 9rem;
+    display: flex;
   }
 }
 .hero__header {

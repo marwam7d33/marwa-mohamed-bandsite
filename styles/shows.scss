@@ -153,6 +153,7 @@ html {
 
         @include desktop {
           padding-left: 9rem;
+          display: flex;
         }
       }
     }
