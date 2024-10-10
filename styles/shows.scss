@@ -184,16 +184,19 @@ html {
 }
 
 iframe {
-  font-size: 10px;
-  color: #cccccc;
-  line-break: anywhere;
-  word-break: normal;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
-    Garuda, Verdana, Tahoma, sans-serif;
-  font-weight: 100;
+  margin: 0 auto;
+  width: 100%;
+  height: 9rem;
+  z-index: 4;
+  // color: #cccccc;
+  // line-break: anywhere;
+  // word-break: normal;
+  // overflow: hidden;
+  // white-space: nowrap;
+  // text-overflow: ellipsis;
+  // font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
+  //   Garuda, Verdana, Tahoma, sans-serif;
+  // font-weight: 100;
   z-index: 4;
 
   &__bluefox {
@@ -203,5 +206,145 @@ iframe {
   &__lofigirl {
     color: #cccccc;
     text-decoration: none;
+  }
+}
+
+.shows {
+  padding: 16px;
+  &__content {
+    border-bottom: $Mercury solid 1px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  &__container p {
+    margin: 1rem;
+    color: $BandSite-Black;
+  }
+
+  &__button {
+    background-color: #323232;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: none;
+  }
+}
+p::first-word {
+  font-weight: bold;
+  color: red;
+}
+
+// FOOTER STYLING
+.footer {
+  @include tablet {
+    position: relative;
+    // width: 100%;
+    display: flex;
+    font-size: 0.625rem;
+    line-height: 1.25rem;
+  }
+
+  @include mobile-footer;
+  display: flex;
+  background-color: #323232;
+  color: #ffffff;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: flex-start;
+  text-decoration: none;
+  padding: 1.25rem;
+
+  &__logo {
+    padding-top: 20px;
+    position: relative;
+    left: 0;
+    top: 0.875rem;
+
+    @include tablet {
+      position: absolute;
+      top: 3rem;
+      left: 35rem;
+    }
+  }
+
+  &__legal {
+    padding-top: 10px;
+    display: flex;
+    font-size: 10px;
+
+    @include tablet {
+      font-weight: 400;
+      font-size: 0.875rem;
+      position: relative;
+      left: -12rem;
+      top: 0.625rem;
+    }
+  }
+
+  &__email {
+    text-decoration: none;
+    color: $White;
+  }
+
+  &__icons {
+    padding-right: 1.25rem;
+    @include tablet {
+      font-size: 1.25rem;
+    }
+  }
+  &__address {
+    @include tablet {
+      position: relative;
+      left: -25px;
+      display: flex;
+      flex-direction: column;
+      font-weight: 400;
+      font-size: 14px;
+      @include main-footer;
+    }
+    h3 {
+      @include tablet {
+        // font-weight: 600;
+        @include main-footer;
+      }
+    }
+  }
+  &__title {
+    @include tablet {
+      @include main-subheader;
+      font-weight: 600;
+      font-size: 2.5625rem;
+      padding-right: 5.125rem;
+    }
+  }
+  &__socials {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      padding-left: 20px;
+    }
+  }
+  &__company p {
+    @include tablet;
+    padding: 0;
+  }
+
+  &__mid-section {
+    @include mobile {
+      font-weight: 400;
+
+      @include tablet {
+        gap: 7%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
   }
 }

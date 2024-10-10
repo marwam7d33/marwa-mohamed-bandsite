@@ -35,15 +35,40 @@ let allShows = [
 ];
 
 //DOM
-//using a for loop
-
+// select container
+//create a function/ use a for loop /create elements and append
 //   console.log(allShows);
-let showSection = document.querySelectorAll(".shows__container");
-for (i = 0; i < allShows.length; i++) {
-  const show = allShows[i];
-  //   console.log(show.venue);
+let showContainer = document.querySelector(".shows__container");
 
-  const date = document.createElement("p");
-  date.content = `"Date": ${allShows.date}`;
-  showSection.appendChild(date);
+function createSection() {
+  for (let i = 0; i < allShows.length; i++) {
+    // console.log(allShows.length);
+    let showsContent = document.createElement("div");
+    showsContent.classList.add("shows__content"); //content container
+    showContainer.appendChild(showsContent);
+    // console.log(showContent);
+    //date - append to above new container
+    let date = document.createElement("p");
+    date.textContent = `DATE ${allShows[i].date}`; //allshows [i] for all dates in the array
+    showsContent.appendChild(date);
+
+    // console.log(date);
+
+    let venue = document.createElement("p");
+    venue.textContent = `VENUE ${allShows[i].venue}`;
+    showsContent.appendChild(venue);
+
+    let location = document.createElement("p");
+    location.textContent = `LOCATION ${allShows[i].location}`;
+    showsContent.appendChild(location);
+
+    //button/ createm btn/ text content/class and then append
+
+    let button = document.createElement("button");
+    button.textContent = "BUY TICKETS";
+    button.classList.add("shows__button");
+    showsContent.appendChild(button);
+  }
 }
+//invoke
+createSection();
