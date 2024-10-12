@@ -20,18 +20,16 @@ html {
   color: #323232;
 }
 
-@media screen and (min-width: 320px) {
-  .header {
-    background-color: #323232;
-    text-decoration: none;
-    font-size: 1.125rem;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-  }
+.header {
+  background-color: #323232;
+  text-decoration: none;
+  font-size: 1.125rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
 }
-@media screen and (min-width: 320px) and (min-width: 767px) {
+@media (min-width: 767px) {
   .header {
     font-size: 24px;
     line-height: 32px;
@@ -64,33 +62,28 @@ html {
   display: flex;
 }
 
-@media screen and (min-width: 320px) {
-  .header__navlinks a {
-    text-align: center;
-    display: flex;
-    color: #afafaf;
-    text-decoration: none;
-    padding: 0.625rem 2.9375rem;
-    margin: 0;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: stretch;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .header__navlinks a:hover, .header__navlinks a:focus {
-    color: #ffffff;
-    border-bottom: 2px solid #ffffff;
-    content: "";
-    position: relative;
-    inset: 0;
-  }
+.header__navlinks a {
+  text-align: center;
+  display: flex;
+  color: #afafaf;
+  text-decoration: none;
+  padding: 0.625rem 2.9375rem;
+  margin: 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__navlinks a:hover, .header__navlinks a:focus {
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+  content: "";
+  position: relative;
+  inset: 0;
 }
 @media screen and (min-width: 768px) {
-  .header__navlinks a {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 600;
+  .header__navlinks a:hover, .header__navlinks a:focus {
     font-size: 21px;
     font-weight: 400;
     display: flex;
@@ -100,7 +93,7 @@ html {
   }
 }
 @media screen and (min-width: 1280px) {
-  .header__navlinks a {
+  .header__navlinks a:hover, .header__navlinks a:focus {
     font-size: 0.875rem;
     padding-right: 0;
   }
@@ -207,17 +200,6 @@ html {
   }
 }
 
-.shows {
-  gap: 10rem;
-}
-@media (min-width: 767px) {
-  .shows {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 700;
-  }
-}
-
 iframe {
   margin: 0 auto;
   width: 100%;
@@ -236,29 +218,36 @@ iframe__lofigirl {
 
 .shows {
   padding: 16px;
+  font-family: "avenir";
 }
-.shows__content {
-  border-bottom: #e1e1e1 solid 1px;
+.shows__container {
+  display: flex;
   padding: 16px;
   background-color: #f9f9f9;
   border-radius: 4px;
   margin-bottom: 10px;
-}
-.shows__container p {
-  margin: 1rem;
-  color: #323232;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .shows__button {
+  width: 100%;
   background-color: #323232;
   color: white;
   padding: 10px 15px;
   border-radius: 4px;
-  border: none;
 }
-
-p::first-word {
-  font-weight: bold;
-  color: red;
+.shows__container div {
+  color: black;
+  font-weight: 400;
+  font-size: 15px;
+}
+.shows__labels {
+  color: #afafaf;
+  font-weight: 600;
+  font-size: 11px;
+}
+.shows__date-info {
+  font-weight: 600;
 }
 
 .footer {
@@ -348,8 +337,8 @@ p::first-word {
 }
 @media screen and (min-width: 768px) {
   .footer__title {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 1.5rem;
+    line-height: 2rem;
     font-weight: 600;
     font-weight: 600;
     font-size: 2.5625rem;
@@ -368,12 +357,10 @@ p::first-word {
 .footer__company p {
   padding: 0;
 }
-@media screen and (min-width: 320px) {
-  .footer__mid-section {
-    font-weight: 400;
-  }
+.footer__mid-section {
+  font-weight: 400;
 }
-@media screen and (min-width: 320px) and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .footer__mid-section {
     gap: 7%;
     display: flex;

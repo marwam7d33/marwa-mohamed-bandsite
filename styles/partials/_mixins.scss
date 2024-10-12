@@ -1,10 +1,5 @@
 @use "./variables" as *;
-// media screen
-@mixin mobile {
-  @media screen and (min-width: $mobile-breakpoint) {
-    @content;
-  }
-}
+
 @mixin tablet {
   @media screen and (min-width: $tablet-breakpoint) {
     @content;
@@ -26,10 +21,6 @@
     @content;
   }
 }
-//   Page Header
-// Text size: 24px | Line height: 32px | Text weight: Bold 700
-// Section Header
-// Text size: 14px | Line height: 22px | Text weight: Demi 600
 @mixin mobile-section-header {
   @media (min-width: 767px) {
     font-size: 14px;
@@ -39,8 +30,6 @@
   }
 }
 
-// Subheader
-// Text size: 13px | Line height: 18px | Text weight: Regular 400
 @mixin mobile-subheader {
   @media (min-width: 767px) {
     font-size: 13px;
@@ -49,8 +38,6 @@
     @content;
   }
 }
-// Body Copy
-// Text size: 13px | Line height: 18px | Text weight: Regular 400
 @mixin mobile-body {
   @media (min-width: 767px) {
     font-size: 13px;
@@ -60,8 +47,6 @@
   }
 }
 
-// Footer Copy
-// Text size: 10px | Line height: 20px | Text weight: Bold 700
 @mixin mobile-footer {
   @media (min-width: 767px) {
     font-size: 10px;

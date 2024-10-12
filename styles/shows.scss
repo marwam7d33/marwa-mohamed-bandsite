@@ -9,16 +9,15 @@ html {
 }
 
 .header {
-  @include mobile {
-    @include mobile-only-header;
-    background-color: #323232;
-    text-decoration: none;
-    font-size: 1.125rem;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-  }
+  @include mobile-only-header;
+  background-color: #323232;
+  text-decoration: none;
+  font-size: 1.125rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+
   @include tablet {
     display: flex;
     flex-direction: row;
@@ -44,40 +43,37 @@ html {
 }
 
 .header__navlinks a {
-  @include mobile {
-    text-align: center;
-    display: flex;
-    color: #afafaf;
-    text-decoration: none;
-    padding: 0.625rem 2.9375rem;
-    margin: 0;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: stretch;
-    align-items: center;
-    justify-content: space-between;
+  text-align: center;
+  display: flex;
+  color: #afafaf;
+  text-decoration: none;
+  padding: 0.625rem 2.9375rem;
+  margin: 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: center;
+  justify-content: space-between;
+  &:hover,
+  &:focus {
+    color: $White;
+    border-bottom: 2px solid #ffffff;
+    content: "";
+    position: relative;
+    inset: 0;
 
-    &:hover,
-    &:focus {
-      color: $White;
-      border-bottom: 2px solid #ffffff;
-      content: "";
-      position: relative;
-      inset: 0;
+    @include tablet {
+      font-size: 21px;
+      font-weight: 400;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: flex-start;
     }
-  }
-  @include tablet {
-    @include main-subheader;
-    font-size: 21px;
-    font-weight: 400;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
-  }
-  @include desktop {
-    font-size: 0.875rem;
-    padding-right: 0;
+    @include desktop {
+      font-size: 0.875rem;
+      padding-right: 0;
+    }
   }
 }
 
@@ -178,11 +174,6 @@ html {
   }
 }
 
-.shows {
-  @include mobile-only-header;
-  gap: 10rem;
-}
-
 iframe {
   margin: 0 auto;
   width: 100%;
@@ -211,29 +202,36 @@ iframe {
 
 .shows {
   padding: 16px;
-  &__content {
-    border-bottom: $Mercury solid 1px;
+  font-family: "avenir";
+  &__container {
+    display: flex;
     padding: 16px;
     background-color: #f9f9f9;
     border-radius: 4px;
     margin-bottom: 10px;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  &__container p {
-    margin: 1rem;
-    color: $BandSite-Black;
-  }
-
   &__button {
-    background-color: #323232;
+    width: 100%;
+    background-color: $BandSite-Black;
     color: white;
     padding: 10px 15px;
     border-radius: 4px;
-    border: none;
   }
-}
-p::first-word {
-  font-weight: bold;
-  color: red;
+  &__container div {
+    color: black;
+    font-weight: 400;
+    font-size: 15px;
+  }
+  &__labels {
+    color: $Silver;
+    font-weight: 600;
+    font-size: 11px;
+  }
+  &__date-info {
+    font-weight: 600;
+  }
 }
 
 // FOOTER STYLING
@@ -335,16 +333,14 @@ p::first-word {
   }
 
   &__mid-section {
-    @include mobile {
-      font-weight: 400;
+    font-weight: 400;
 
-      @include tablet {
-        gap: 7%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
+    @include tablet {
+      gap: 7%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
     }
   }
 }

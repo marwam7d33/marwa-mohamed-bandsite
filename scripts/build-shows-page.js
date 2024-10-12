@@ -1,74 +1,109 @@
-//object-arrays (shows info)
+// //object-arrays (shows info)
 let allShows = [
   {
     date: "Mon Sept 09 2024",
     venue: "Ronald Lane",
     location: "San Francisco, CA",
+    button: "BUY TICKETS",
   },
 
   {
     date: "Tue Sept 17 2024",
     venue: "Pier 3 East",
     location: "San Francisco, CA",
+    button: "BUY TICKETS",
   },
 
   {
     date: "Sat Oct 12 2024",
     venue: "View Lounge",
     location: "San Francisco, CA",
+    button: "BUY TICKETS",
   },
   {
     date: "Sat Nov 16 2024",
     venue: "Hyatt Agency",
     location: "San Francisco, CA",
+    button: "BUY TICKETS",
   },
   {
     date: "Fri Nov 29 2024",
     venue: "Moscow Center",
     location: "San Francisco, CA",
+    button: "BUY TICKETS",
   },
   {
     date: "Wed Dec 18 2024",
     venue: "Press Club",
     location: "San Francisco, CA",
+    button: "BUY TICKETS",
   },
 ];
 
-//DOM
-// select container
-//create a function/ use a for loop /create elements and append
-//   console.log(allShows);
-let showContainer = document.querySelector(".shows__container");
+function addShows() {
+  let Containermain = document.querySelector(".shows");
 
-function createSection() {
-  for (let i = 0; i < allShows.length; i++) {
-    // console.log(allShows.length);
-    let showsContent = document.createElement("div");
-    showsContent.classList.add("shows__content"); //content container
-    showContainer.appendChild(showsContent);
-    // console.log(showContent);
-    //date - append to above new container
-    let date = document.createElement("p");
-    date.textContent = `DATE ${allShows[i].date}`; //allshows [i] for all dates in the array
-    showsContent.appendChild(date);
+  // allShows.forEach((show) => {
+  //header
+  let showHeader = document.createElement("h3");
+  showHeader.classList.add("shows__header");
+  showHeader.textContent = "Shows";
+  Containermain.appendChild(showHeader);
 
-    // console.log(date);
+  allShows.forEach((show) => {
+    // console.log(allShows);
+    let showContainer = document.createElement("article");
+    showContainer.classList.add("shows__container");
 
-    let venue = document.createElement("p");
-    venue.textContent = `VENUE ${allShows[i].venue}`;
-    showsContent.appendChild(venue);
+    //date
+    let showDate = document.createElement("div");
+    showDate.classList.add("Shows__date");
+    showContainer.appendChild(showDate);
 
-    let location = document.createElement("p");
-    location.textContent = `LOCATION ${allShows[i].location}`;
-    showsContent.appendChild(location);
+    let pDateLabel = document.createElement("p");
+    pDateLabel.textContent = "DATE";
+    pDateLabel.classList.add("shows__labels");
+    showDate.appendChild(pDateLabel);
 
-    //button/ createm btn/ text content/class and then append
+    let pDate = document.createElement("p");
+    pDate.textContent = `${show.date}`;
+    pDate.classList.add("shows__date-info");
+    showDate.appendChild(pDate);
 
-    let button = document.createElement("button");
-    button.textContent = "BUY TICKETS";
-    button.classList.add("shows__button");
-    showsContent.appendChild(button);
-  }
+    //venue
+    let showVenue = document.createElement("div");
+    showVenue.classList.add("Shows__venue");
+    showContainer.appendChild(showVenue);
+
+    let pVenueLabel = document.createElement("p");
+    pVenueLabel.textContent = "VENUE";
+    pVenueLabel.classList.add("shows__labels");
+    showDate.appendChild(pVenueLabel);
+
+    let pVenue = document.createElement("p");
+    pVenue.textContent = `${show.venue}`;
+    showVenue.appendChild(pVenue);
+
+    //location
+    let showLocation = document.createElement("div");
+    showLocation.classList.add("Shows__location");
+    showContainer.appendChild(showLocation);
+
+    let pLocationLabel = document.createElement("p");
+    pLocationLabel.textContent = "LOCATION";
+    pLocationLabel.classList.add("shows__labels");
+    showLocation.appendChild(pLocationLabel);
+
+    let pLocation = document.createElement("p");
+    pLocation.textContent = `${show.location}`;
+    showLocation.appendChild(pLocation);
+    //button
+    let showButton = document.createElement("button");
+    showButton.classList.add("shows__button");
+    showButton.textContent = `${show.button}`;
+    showContainer.appendChild(showButton);
+
+    Containermain.appendChild(showContainer);
+  });
 }
-//invoke
-createSection();
+addShows();
