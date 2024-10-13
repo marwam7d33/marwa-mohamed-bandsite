@@ -1,5 +1,6 @@
 @use "./partials/variables" as *;
 @use "./partials/mixins" as *;
+@use "./partials/global" as *;
 
 html {
   box-sizing: border-box;
@@ -10,75 +11,6 @@ body {
   font-weight: 400;
   font-size: 0.8125rem;
   color: $BandSite-Black;
-}
-
-.header {
-  @include mobile-only-header;
-  background-color: #323232;
-  text-decoration: none;
-  font-size: 1.125rem;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-
-  @include tablet {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    padding: 1.25rem;
-  }
-  &__logo {
-    @include tablet {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding-left: 1.25rem;
-    }
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-  }
-  &__navlinks {
-    display: flex;
-  }
-}
-
-.header__navlinks a {
-  text-align: center;
-  display: flex;
-  color: #afafaf;
-  text-decoration: none;
-  padding: 0.625rem 2.9375rem;
-  margin: 0;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: stretch;
-  align-items: center;
-  justify-content: space-between;
-  &:hover,
-  &:focus {
-    color: $White;
-    border-bottom: 2px solid #ffffff;
-    content: "";
-    position: relative;
-    inset: 0;
-  }
-
-  @include tablet {
-    @include main-subheader;
-    font-size: 21px;
-    font-weight: 400;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
-  }
-  @include desktop {
-    font-size: 0.875rem;
-    padding-right: 0;
-  }
 }
 
 .hero__image {
@@ -115,10 +47,10 @@ body {
 
   &__title {
     font-weight: 400;
-    display: flex;
+    // display: flex;
     font-size: 1.9375rem;
     flex-wrap: wrap;
-    flex-direction: column;
+    // flex-direction: column;
     justify-content: center;
     color: #ffffff;
     position: relative;
@@ -130,14 +62,14 @@ body {
       @include main-header;
       font-weight: 600;
       padding-left: 20px;
-      position: relative;
-      top: 0.25rem;
-      left: 0.625rem;
+      // position: relative;
+      // top: 0.25rem;
+      // left: 0.625rem;
     }
     @include desktop {
-      position: relative;
-      top: -3.0625rem;
-      left: 6.5625rem;
+      // position: relative;
+      // top: -3.0625rem;
+      // left: 6.5625rem;
     }
   }
 }
@@ -222,6 +154,16 @@ body {
   width: 94%;
   display: flex;
   flex-direction: column;
+  @include tablet {
+    display: flex;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
   // content title
   &__title {
     @include mobile-section-header;
@@ -253,26 +195,15 @@ body {
       line-height: 1.5rem;
       font-weight: 400;
       padding-right: 2.5rem;
-      //review 2 tablets
-      @include tablet {
-        display: flex;
-        font-size: 0.875rem;
-        line-height: 1.375rem;
-        font-weight: 400;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: center;
-      }
-
-      &__container {
-        @include tablet {
-          display: flex;
-          padding-left: 9rem;
-          width: 85%;
-          flex-direction: column;
-        }
-      }
+    }
+    //review 2 tablets
+  }
+  &__container {
+    @include tablet {
+      display: flex;
+      padding-left: 9rem;
+      width: 85%;
+      flex-direction: column;
     }
   }
 }
@@ -330,122 +261,8 @@ body {
     @include tablet {
       display: flex;
       padding: 0.5rem;
-      height: 8.1875rem;
       flex-direction: row;
       width: 30%;
-    }
-    &:hover {
-      filter: grayscale(0%);
-    }
-  }
-}
-// FOOTER STYLING
-.footer {
-  @include tablet {
-    position: relative;
-    // width: 100%;
-    display: flex;
-    font-size: 0.625rem;
-    line-height: 1.25rem;
-  }
-
-  @include mobile-footer;
-  display: flex;
-  background-color: #323232;
-  color: #ffffff;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: stretch;
-  align-items: flex-start;
-  text-decoration: none;
-  padding: 1.25rem;
-
-  &__logo {
-    padding-top: 20px;
-    position: relative;
-    left: 0;
-    top: 0.875rem;
-
-    @include tablet {
-      position: absolute;
-      top: 3rem;
-      left: 35rem;
-    }
-  }
-
-  &__legal {
-    padding-top: 10px;
-    display: flex;
-    font-size: 10px;
-
-    @include tablet {
-      font-weight: 400;
-      font-size: 0.875rem;
-      position: relative;
-      left: -12rem;
-      top: 0.625rem;
-    }
-  }
-
-  &__email {
-    text-decoration: none;
-    color: $White;
-  }
-
-  &__icons {
-    padding-right: 1.25rem;
-    @include tablet {
-      font-size: 1.25rem;
-    }
-  }
-  &__address {
-    @include tablet {
-      position: relative;
-      left: -25px;
-      display: flex;
-      flex-direction: column;
-      font-weight: 400;
-      font-size: 14px;
-      @include main-footer;
-    }
-    h3 {
-      @include tablet {
-        // font-weight: 600;
-        @include main-footer;
-      }
-    }
-  }
-  &__title {
-    @include tablet {
-      @include main-subheader;
-      font-weight: 600;
-      font-size: 2.5625rem;
-      padding-right: 5.125rem;
-    }
-  }
-  &__socials {
-    @include tablet {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      width: 100%;
-      padding-left: 20px;
-    }
-  }
-  &__company p {
-    @include tablet;
-    padding: 0;
-  }
-
-  &__mid-section {
-    font-weight: 400;
-
-    @include tablet {
-      gap: 7%;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
     }
   }
 }
@@ -454,6 +271,9 @@ body {
   display: flex;
   flex-direction: column;
   &__container {
+    padding-left: 20px;
+    border-bottom: solid $Silver 2px;
+    padding-bottom: 0.9375rem;
     display: flex;
     flex-direction: column;
   }
@@ -479,10 +299,11 @@ body {
     padding-bottom: 20px;
   }
   &__input {
+    font-family: "avenir";
+    color: black;
     padding-top: 0;
     width: 80%;
     border-radius: 4px;
-    background-color: #afafaf29;
     padding: 12px;
   }
   &__name {
@@ -496,18 +317,28 @@ body {
     background-color: $BandSite-Black;
     border-radius: 4px;
     width: 80%;
-    // padding: 12px;
-
-    line-height: 1.5rem;
+    height: 2rem;
   }
   &__fieldset {
+    width: 100vw;
     display: flex;
+    @include tablet {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+  &__header {
+    font-size: 1.5625rem;
+    font-weight: 600;
   }
 }
 
 .comments {
   display: flex;
   flex-direction: column;
+  @include tablet {
+    padding-left: 58px;
+  }
 
   &__date {
     color: $Silver;
@@ -525,6 +356,13 @@ body {
     padding-left: 25px;
     border-bottom: solid $Silver 2px;
     margin-bottom: 20px;
+
+    @include tablet {
+      display: flex;
+      padding-left: 25px;
+      flex-direction: row;
+      justify-content: center;
+    }
   }
   &__avatar {
     width: 50px;
@@ -534,5 +372,10 @@ body {
   }
   &__content {
     width: 100%;
+    @include tablet {
+      display: flex;
+      width: 60%;
+      line-height: 20px;
+    }
   }
 }

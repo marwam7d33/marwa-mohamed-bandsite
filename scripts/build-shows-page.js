@@ -107,3 +107,13 @@ function addShows() {
   });
 }
 addShows();
+
+let showsContainer = document.querySelectorAll(".shows__container");
+
+showsContainer.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    showsContainer.forEach((show) => show.classList.remove("clicked"));
+
+    item.classList.add("clicked");
+  });
+});

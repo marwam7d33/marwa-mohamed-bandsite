@@ -86,7 +86,7 @@ let formSubmit = document.querySelector(".forms");
 
 formSubmit.addEventListener("submit", (event) => {
   event.preventDefault(); //Prevents the page from reloading
-  console.log("you submitted the form"); //working
+  console.log("you submitted the form"); // working
 
   // Prevents the page from reloading when submitting a new comment
   // Constructs a new comment object
@@ -96,12 +96,16 @@ formSubmit.addEventListener("submit", (event) => {
     comment: event.target.forms__comment.value,
   };
   // Pushes a new comment object to an array of comments
-  allComments.push(commentNew);
+  allComments.unshift(commentNew);
   // Clears all comments from the page
 
   let mainContainer = document.querySelector(".comments");
   mainContainer.textContent = "  ";
-  // Re-renders to the page all comments from the comment array
+
   // Clears the input fields after submitting a new comment
+  event.target.forms__name.value = "";
+  event.target.forms__comment.value = "";
+
+  // Re-renders to the page all comments from the comment array
   addComments(allComments);
 });
