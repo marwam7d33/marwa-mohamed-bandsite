@@ -316,8 +316,16 @@ body {
     // font-size: 21px;
     background-color: $BandSite-Black;
     border-radius: 4px;
-    width: 80%;
+    width: 30%;
     height: 2rem;
+    &-outer {
+      @include tablet {
+        width: 83%;
+        display: flex;
+        align-content: flex-end;
+        justify-content: flex-end;
+      }
+    }
   }
   &__fieldset {
     width: 100vw;
@@ -326,10 +334,21 @@ body {
       flex-direction: row;
       justify-content: center;
     }
+    @include desktop {
+      width: 50%;
+      display: flex;
+      position: relative;
+      left: 310px;
+    }
   }
   &__header {
     font-size: 1.5625rem;
     font-weight: 600;
+    @include desktop {
+      padding-left: 45px;
+      font-size: 2.5625rem;
+      font-weight: 600;
+    }
   }
 }
 
@@ -339,7 +358,12 @@ body {
   @include tablet {
     padding-left: 58px;
   }
-
+  &__wrapper {
+    // border-top: solid $Silver 2px;
+    @include desktop {
+      width: 50vw;
+    }
+  }
   &__date {
     color: $Silver;
     display: flex;
@@ -376,6 +400,13 @@ body {
       display: flex;
       width: 60%;
       line-height: 20px;
+    }
+  }
+  &__wrapper {
+    @include desktop {
+      position: relative;
+      left: 220px;
+      width: 61%;
     }
   }
 }

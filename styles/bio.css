@@ -561,8 +561,16 @@ body {
   font-weight: 600;
   background-color: #323232;
   border-radius: 4px;
-  width: 80%;
+  width: 30%;
   height: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .forms__button-outer {
+    width: 83%;
+    display: flex;
+    align-content: flex-end;
+    justify-content: flex-end;
+  }
 }
 .forms__fieldset {
   width: 100vw;
@@ -574,9 +582,24 @@ body {
     justify-content: center;
   }
 }
+@media screen and (min-width: 1280px) {
+  .forms__fieldset {
+    width: 50%;
+    display: flex;
+    position: relative;
+    left: 310px;
+  }
+}
 .forms__header {
   font-size: 1.5625rem;
   font-weight: 600;
+}
+@media screen and (min-width: 1280px) {
+  .forms__header {
+    padding-left: 45px;
+    font-size: 2.5625rem;
+    font-weight: 600;
+  }
 }
 
 .comments {
@@ -586,6 +609,11 @@ body {
 @media screen and (min-width: 768px) {
   .comments {
     padding-left: 58px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .comments__wrapper {
+    width: 50vw;
   }
 }
 .comments__date {
@@ -627,5 +655,12 @@ body {
     display: flex;
     width: 60%;
     line-height: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .comments__wrapper {
+    position: relative;
+    left: 220px;
+    width: 61%;
   }
 }/*# sourceMappingURL=bio.css.map */

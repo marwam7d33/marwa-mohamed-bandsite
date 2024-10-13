@@ -78,7 +78,7 @@ function addShows() {
     let pVenueLabel = document.createElement("p");
     pVenueLabel.textContent = "VENUE";
     pVenueLabel.classList.add("shows__labels");
-    showDate.appendChild(pVenueLabel);
+    showVenue.appendChild(pVenueLabel);
 
     let pVenue = document.createElement("p");
     pVenue.textContent = `${show.venue}`;
