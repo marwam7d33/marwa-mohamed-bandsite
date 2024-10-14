@@ -1,5 +1,16 @@
 @use "./mixins" as *;
 @use "./variables" as *;
+
+html,
+body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  font-family: "Avenir";
+  font-weight: 400;
+  font-size: 0.8125rem;
+  color: $BandSite-Black;
+}
+
 .header {
   @include mobile-only-header;
   background-color: #323232;
@@ -11,14 +22,16 @@
   align-items: center;
 
   @include tablet {
+    gap: 4rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: flex-start;
+    align-content: center;
     padding: 1.25rem;
   }
   &__logo {
     @include tablet {
+      padding-bottom: 1rem;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -28,44 +41,51 @@
     text-align: center;
     flex-direction: column;
   }
-  &__navlinks {
+  &__nav {
     display: flex;
+    gap: 4rem;
+    margin: 0;
   }
-}
-
-.header__navlinks a {
-  text-align: center;
-  display: flex;
-  color: #afafaf;
-  text-decoration: none;
-  padding: 0.625rem 2.9375rem;
-  margin: 0;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: stretch;
-  align-items: center;
-  justify-content: space-between;
-  &:hover,
-  &:focus {
-    color: $White;
-    border-bottom: 2px solid #ffffff;
-    content: "";
+  &__nav-link {
+    color: #e1e1e1;
+    text-decoration: none;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    width: 100%;
     position: relative;
-    inset: 0;
-  }
+    flex: 1;
 
-  @include tablet {
-    @include main-subheader;
-    font-size: 21px;
-    font-weight: 400;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
-  }
-  @include desktop {
-    font-size: 0.875rem;
-    padding-right: 0;
+    &:hover::after,
+    &:focus::after {
+      border-bottom: 2px solid #ffffff;
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+
+    @include tablet {
+      @include main-subheader;
+      font-size: 21px;
+      font-weight: 400;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: flex-start;
+    }
+    @include desktop {
+      font-size: 1rem;
+      padding-right: 0;
+    }
+    &.active {
+      color: $White;
+      font-weight: 700;
+    }
+    &.active::after {
+      border-bottom: 2px solid #ffffff;
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
   }
 }
 
@@ -100,6 +120,9 @@
       position: absolute;
       top: 3rem;
       left: 35rem;
+    }
+    @include desktop {
+      left: 60rem;
     }
   }
 
@@ -138,13 +161,14 @@
       font-size: 14px;
       @include main-footer;
     }
-    h3 {
-      @include tablet {
-        // font-weight: 600;
-        @include main-footer;
-      }
+  }
+  &__company {
+    @include tablet {
+      // font-weight: 600;
+      @include main-footer;
     }
   }
+
   &__title {
     @include tablet {
       @include main-subheader;
@@ -162,7 +186,7 @@
       padding-left: 20px;
     }
   }
-  &__company p {
+  &__text {
     @include tablet;
     padding: 0;
   }

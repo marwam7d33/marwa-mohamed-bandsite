@@ -2,20 +2,9 @@
 @use "./partials/mixins" as *;
 @use "./partials/global" as *;
 
-html {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Avenir";
-  font-weight: 400;
-  font-size: 0.8125rem;
-  color: $BandSite-Black;
-}
-
 .hero__image {
-  width: 100%;
-  height: 50vh;
+  // width: 100%;
+  height: 22rem;
   background-image: url(/assets/Images/hero-bio.jpg);
   background-size: cover;
   display: flex;
@@ -23,12 +12,12 @@ body {
   background-position: center;
   @include tablet {
     display: flex;
-    height: 31.25rem;
+    height: 50rem;
     flex-direction: column;
     justify-content: center;
   }
   @include desktop {
-    height: 37.5rem;
+    height: 55rem;
   }
   &__overlay {
     display: flex;
@@ -46,30 +35,23 @@ body {
   }
 
   &__title {
-    font-weight: 400;
-    // display: flex;
+    padding-left: 10px;
+    display: flex;
+    font-weight: 600;
     font-size: 1.9375rem;
     flex-wrap: wrap;
-    // flex-direction: column;
-    justify-content: center;
-    color: #ffffff;
-    position: relative;
-    top: 0.25rem;
-    left: 0.625rem;
+    color: $White;
     z-index: 2;
+    flex-direction: column;
+    justify-content: center;
 
     @include tablet {
       @include main-header;
       font-weight: 600;
       padding-left: 20px;
-      // position: relative;
-      // top: 0.25rem;
-      // left: 0.625rem;
     }
     @include desktop {
-      // position: relative;
-      // top: -3.0625rem;
-      // left: 6.5625rem;
+      padding-left: 102px;
     }
   }
 }
@@ -135,7 +117,8 @@ body {
   }
 
   &__title {
-    @include mobile-subheader;
+    font-weight: 600;
+    font-size: 25px;
     position: relative;
     left: -1.9375rem;
     color: #323232;
@@ -144,6 +127,9 @@ body {
       @include main-header;
       font-weight: 600;
       display: flex;
+    }
+    @include desktop {
+      font-size: 2.5rem;
     }
   }
 }
@@ -167,7 +153,6 @@ body {
   // content title
   &__title {
     @include mobile-section-header;
-
     @include tablet {
       font-size: 1.9375rem;
       line-height: 2.75rem;
@@ -196,7 +181,6 @@ body {
       font-weight: 400;
       padding-right: 2.5rem;
     }
-    //review 2 tablets
   }
   &__container {
     @include tablet {
@@ -204,6 +188,9 @@ body {
       padding-left: 9rem;
       width: 85%;
       flex-direction: column;
+    }
+    @include desktop {
+      padding-left: 13rem;
     }
   }
 }
@@ -226,8 +213,8 @@ body {
   }
 
   &__title {
-    @include mobile-subheader;
-
+    font-size: 1.875rem;
+    font-weight: 600;
     @include tablet {
       @include main-subheader;
     }
@@ -256,7 +243,6 @@ body {
     -o-object-fit: cover;
     object-fit: cover;
     width: 100%;
-    filter: grayscale;
 
     @include tablet {
       display: flex;
@@ -270,9 +256,11 @@ body {
 .forms {
   display: flex;
   flex-direction: column;
+  line-height: 25px;
+
   &__container {
     padding-left: 20px;
-    border-bottom: solid $Silver 2px;
+    // border-bottom: solid $Silver 2px;
     padding-bottom: 0.9375rem;
     display: flex;
     flex-direction: column;
@@ -287,7 +275,7 @@ body {
     padding-left: 15px;
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 70%;
   }
 
   &__input-container {
@@ -313,11 +301,13 @@ body {
   &__button {
     color: white;
     font-weight: 600;
-    // font-size: 21px;
     background-color: $BandSite-Black;
     border-radius: 4px;
-    width: 30%;
-    height: 2rem;
+    width: 90%;
+    height: 2.5rem;
+    @include tablet {
+      width: 30%;
+    }
     &-outer {
       @include tablet {
         width: 83%;
@@ -326,10 +316,17 @@ body {
         justify-content: flex-end;
       }
     }
+    &:hover {
+      background-color: black;
+      color: $White;
+    }
   }
   &__fieldset {
     width: 100vw;
     display: flex;
+    border-bottom: solid $Silver 2px;
+    padding-bottom: 1.25rem;
+
     @include tablet {
       flex-direction: row;
       justify-content: center;
@@ -345,7 +342,7 @@ body {
     font-size: 1.5625rem;
     font-weight: 600;
     @include desktop {
-      padding-left: 45px;
+      padding-left: 8rem;
       font-size: 2.5625rem;
       font-weight: 600;
     }

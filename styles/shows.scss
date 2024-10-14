@@ -2,13 +2,6 @@
 @use "./partials/mixins" as *;
 @use "./partials/global" as *;
 
-html {
-  font-family: "Avenir";
-  font-weight: 400;
-  font-size: 0.8125rem;
-  color: $BandSite-Black;
-}
-
 .hero {
   color: $White;
   font-family: "Avenir";
@@ -19,7 +12,7 @@ html {
     }
   }
   &__image {
-    width: 100%;
+    width: 100vw;
     height: 50vh;
     background-image: url(/assets/Images/hero-shows.jpg);
     background-size: cover;
@@ -110,25 +103,6 @@ html {
     }
   }
 }
-
-// iframe {
-//   position: relative;
-//   top: 0;
-//   left: 10px;
-//   margin: 0 auto;
-//   width: 88vw;
-//   height: 9rem;
-//   z-index: 4; // color: #cccccc;
-
-//   &__bluefox {
-//     color: #cccccc;
-//     text-decoration: none;
-//   }
-//   &__lofigirl {
-//     color: #cccccc;
-//     text-decoration: none;
-//   }
-// }
 
 .music {
   display: flex;

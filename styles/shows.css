@@ -13,6 +13,16 @@
   src: url(/assets/Font/AvenirNextLTPro-Regular.otf);
   font-weight: 400;
 }
+html,
+body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  font-family: "Avenir";
+  font-weight: 400;
+  font-size: 0.8125rem;
+  color: #323232;
+}
+
 .header {
   background-color: #323232;
   text-decoration: none;
@@ -31,10 +41,11 @@
 }
 @media screen and (min-width: 768px) {
   .header {
+    gap: 4rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: flex-start;
+    align-content: center;
     padding: 1.25rem;
   }
 }
@@ -45,38 +56,35 @@
 }
 @media screen and (min-width: 768px) {
   .header__logo {
+    padding-bottom: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: 1.25rem;
   }
 }
-.header__navlinks {
+.header__nav {
   display: flex;
-}
-
-.header__navlinks a {
-  text-align: center;
-  display: flex;
-  color: #afafaf;
-  text-decoration: none;
-  padding: 0.625rem 2.9375rem;
+  gap: 4rem;
   margin: 0;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: stretch;
-  align-items: center;
-  justify-content: space-between;
 }
-.header__navlinks a:hover, .header__navlinks a:focus {
-  color: #ffffff;
+.header__nav-link {
+  color: #e1e1e1;
+  text-decoration: none;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  flex: 1;
+}
+.header__nav-link:hover::after, .header__nav-link:focus::after {
   border-bottom: 2px solid #ffffff;
   content: "";
-  position: relative;
+  position: absolute;
   inset: 0;
 }
 @media screen and (min-width: 768px) {
-  .header__navlinks a {
+  .header__nav-link {
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 600;
@@ -89,10 +97,20 @@
   }
 }
 @media screen and (min-width: 1280px) {
-  .header__navlinks a {
-    font-size: 0.875rem;
+  .header__nav-link {
+    font-size: 1rem;
     padding-right: 0;
   }
+}
+.header__nav-link.active {
+  color: #ffffff;
+  font-weight: 700;
+}
+.header__nav-link.active::after {
+  border-bottom: 2px solid #ffffff;
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
 .footer {
@@ -132,6 +150,11 @@
     position: absolute;
     top: 3rem;
     left: 35rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer__logo {
+    left: 60rem;
   }
 }
 .footer__legal {
@@ -174,7 +197,7 @@
   }
 }
 @media screen and (min-width: 768px) {
-  .footer__address h3 {
+  .footer__company {
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
@@ -199,7 +222,7 @@
     padding-left: 20px;
   }
 }
-.footer__company p {
+.footer__text {
   padding: 0;
 }
 .footer__mid-section {
@@ -215,13 +238,6 @@
   }
 }
 
-html {
-  font-family: "Avenir";
-  font-weight: 400;
-  font-size: 0.8125rem;
-  color: #323232;
-}
-
 .hero {
   color: #ffffff;
   font-family: "Avenir";
@@ -233,7 +249,7 @@ html {
   }
 }
 .hero__image {
-  width: 100%;
+  width: 100vw;
   height: 50vh;
   background-image: url(/assets/Images/hero-shows.jpg);
   background-size: cover;

@@ -107,9 +107,9 @@ function addShows() {
   });
 }
 addShows();
-
+//select all for the main container
 let showsContainer = document.querySelectorAll(".shows__container");
-
+//function - loop throiugh and remove the class for all shows and add when the event happens
 showsContainer.forEach((item) => {
   item.addEventListener("click", (e) => {
     showsContainer.forEach((show) => show.classList.remove("clicked"));

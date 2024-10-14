@@ -13,6 +13,16 @@
   src: url(/assets/Font/AvenirNextLTPro-Regular.otf);
   font-weight: 400;
 }
+html,
+body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  font-family: "Avenir";
+  font-weight: 400;
+  font-size: 0.8125rem;
+  color: #323232;
+}
+
 .header {
   background-color: #323232;
   text-decoration: none;
@@ -31,10 +41,11 @@
 }
 @media screen and (min-width: 768px) {
   .header {
+    gap: 4rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: flex-start;
+    align-content: center;
     padding: 1.25rem;
   }
 }
@@ -45,38 +56,35 @@
 }
 @media screen and (min-width: 768px) {
   .header__logo {
+    padding-bottom: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: 1.25rem;
   }
 }
-.header__navlinks {
+.header__nav {
   display: flex;
-}
-
-.header__navlinks a {
-  text-align: center;
-  display: flex;
-  color: #afafaf;
-  text-decoration: none;
-  padding: 0.625rem 2.9375rem;
+  gap: 4rem;
   margin: 0;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: stretch;
-  align-items: center;
-  justify-content: space-between;
 }
-.header__navlinks a:hover, .header__navlinks a:focus {
-  color: #ffffff;
+.header__nav-link {
+  color: #e1e1e1;
+  text-decoration: none;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  flex: 1;
+}
+.header__nav-link:hover::after, .header__nav-link:focus::after {
   border-bottom: 2px solid #ffffff;
   content: "";
-  position: relative;
+  position: absolute;
   inset: 0;
 }
 @media screen and (min-width: 768px) {
-  .header__navlinks a {
+  .header__nav-link {
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 600;
@@ -89,10 +97,20 @@
   }
 }
 @media screen and (min-width: 1280px) {
-  .header__navlinks a {
-    font-size: 0.875rem;
+  .header__nav-link {
+    font-size: 1rem;
     padding-right: 0;
   }
+}
+.header__nav-link.active {
+  color: #ffffff;
+  font-weight: 700;
+}
+.header__nav-link.active::after {
+  border-bottom: 2px solid #ffffff;
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
 .footer {
@@ -132,6 +150,11 @@
     position: absolute;
     top: 3rem;
     left: 35rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer__logo {
+    left: 60rem;
   }
 }
 .footer__legal {
@@ -174,7 +197,7 @@
   }
 }
 @media screen and (min-width: 768px) {
-  .footer__address h3 {
+  .footer__company {
     font-size: 14px;
     line-height: 20px;
     font-weight: 400;
@@ -199,7 +222,7 @@
     padding-left: 20px;
   }
 }
-.footer__company p {
+.footer__text {
   padding: 0;
 }
 .footer__mid-section {
@@ -215,20 +238,8 @@
   }
 }
 
-html {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Avenir";
-  font-weight: 400;
-  font-size: 0.8125rem;
-  color: #323232;
-}
-
 .hero__image {
-  width: 100%;
-  height: 50vh;
+  height: 22rem;
   background-image: url(/assets/Images/hero-bio.jpg);
   background-size: cover;
   display: flex;
@@ -238,14 +249,14 @@ body {
 @media screen and (min-width: 768px) {
   .hero__image {
     display: flex;
-    height: 31.25rem;
+    height: 50rem;
     flex-direction: column;
     justify-content: center;
   }
 }
 @media screen and (min-width: 1280px) {
   .hero__image {
-    height: 37.5rem;
+    height: 55rem;
   }
 }
 .hero__image__overlay {
@@ -263,15 +274,15 @@ body {
   height: 100%;
 }
 .hero__image__title {
-  font-weight: 400;
+  padding-left: 10px;
+  display: flex;
+  font-weight: 600;
   font-size: 1.9375rem;
   flex-wrap: wrap;
-  justify-content: center;
   color: #ffffff;
-  position: relative;
-  top: 0.25rem;
-  left: 0.625rem;
   z-index: 2;
+  flex-direction: column;
+  justify-content: center;
 }
 @media screen and (min-width: 768px) {
   .hero__image__title {
@@ -282,6 +293,12 @@ body {
     padding-left: 20px;
   }
 }
+@media screen and (min-width: 1280px) {
+  .hero__image__title {
+    padding-left: 102px;
+  }
+}
+
 .about {
   display: flex;
   flex-direction: column;
@@ -358,16 +375,11 @@ body {
   }
 }
 .about__title {
+  font-weight: 600;
+  font-size: 25px;
   position: relative;
   left: -1.9375rem;
   color: #323232;
-}
-@media (min-width: 767px) {
-  .about__title {
-    font-size: 13px;
-    line-height: 18px;
-    font-weight: 400;
-  }
 }
 @media screen and (min-width: 768px) {
   .about__title {
@@ -376,6 +388,11 @@ body {
     font-weight: 700;
     font-weight: 600;
     display: flex;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .about__title {
+    font-size: 2.5rem;
   }
 }
 
@@ -447,6 +464,11 @@ body {
     flex-direction: column;
   }
 }
+@media screen and (min-width: 1280px) {
+  .content__container {
+    padding-left: 13rem;
+  }
+}
 
 .gallery {
   display: flex;
@@ -464,12 +486,9 @@ body {
     justify-content: center;
   }
 }
-@media (min-width: 767px) {
-  .gallery__title {
-    font-size: 13px;
-    line-height: 18px;
-    font-weight: 400;
-  }
+.gallery__title {
+  font-size: 1.875rem;
+  font-weight: 600;
 }
 @media screen and (min-width: 768px) {
   .gallery__title {
@@ -502,7 +521,6 @@ body {
   -o-object-fit: cover;
   object-fit: cover;
   width: 100%;
-  filter: grayscale;
 }
 @media screen and (min-width: 768px) {
   .gallery__img {
@@ -516,10 +534,10 @@ body {
 .forms {
   display: flex;
   flex-direction: column;
+  line-height: 25px;
 }
 .forms__container {
   padding-left: 20px;
-  border-bottom: solid #afafaf 2px;
   padding-bottom: 0.9375rem;
   display: flex;
   flex-direction: column;
@@ -535,7 +553,7 @@ body {
   padding-left: 15px;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 70%;
 }
 .forms__input-container {
   color: #afafaf;
@@ -561,8 +579,13 @@ body {
   font-weight: 600;
   background-color: #323232;
   border-radius: 4px;
-  width: 30%;
-  height: 2rem;
+  width: 90%;
+  height: 2.5rem;
+}
+@media screen and (min-width: 768px) {
+  .forms__button {
+    width: 30%;
+  }
 }
 @media screen and (min-width: 768px) {
   .forms__button-outer {
@@ -572,9 +595,15 @@ body {
     justify-content: flex-end;
   }
 }
+.forms__button:hover {
+  background-color: black;
+  color: #ffffff;
+}
 .forms__fieldset {
   width: 100vw;
   display: flex;
+  border-bottom: solid #afafaf 2px;
+  padding-bottom: 1.25rem;
 }
 @media screen and (min-width: 768px) {
   .forms__fieldset {
@@ -596,7 +625,7 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .forms__header {
-    padding-left: 45px;
+    padding-left: 8rem;
     font-size: 2.5625rem;
     font-weight: 600;
   }
