@@ -26,7 +26,6 @@ let allComments = [
 const API_KEY = "25731c93-dde1-495b-a9b1-23672fef91df";
 
 const newInstance = new BandSiteApi(API_KEY);
-
 //maincontainer - where we're displaying/adding the comments
 let mainContainer = document.querySelector(".comments");
 
