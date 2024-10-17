@@ -13,10 +13,11 @@
   src: url(/assets/Font/AvenirNextLTPro-Regular.otf);
   font-weight: 400;
 }
-html,
-body {
-  overflow-x: hidden;
+* {
   box-sizing: border-box;
+}
+
+body {
   font-family: "Avenir";
   font-weight: 400;
   font-size: 0.8125rem;

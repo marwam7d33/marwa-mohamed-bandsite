@@ -1,48 +1,53 @@
 // //object-arrays (shows info)
-let allShows = [
-  {
-    date: "Mon Sept 09 2024",
-    venue: "Ronald Lane",
-    location: "San Francisco, CA",
-    button: "BUY TICKETS",
-  },
+// let allShows = [
+//   {
+//     date: "Mon Sept 09 2024",
+//     venue: "Ronald Lane",
+//     location: "San Francisco, CA",
+//     button: "BUY TICKETS",
+//   },
 
-  {
-    date: "Tue Sept 17 2024",
-    venue: "Pier 3 East",
-    location: "San Francisco, CA",
-    button: "BUY TICKETS",
-  },
+//   {
+//     date: "Tue Sept 17 2024",
+//     venue: "Pier 3 East",
+//     location: "San Francisco, CA",
+//     button: "BUY TICKETS",
+//   },
 
-  {
-    date: "Sat Oct 12 2024",
-    venue: "View Lounge",
-    location: "San Francisco, CA",
-    button: "BUY TICKETS",
-  },
-  {
-    date: "Sat Nov 16 2024",
-    venue: "Hyatt Agency",
-    location: "San Francisco, CA",
-    button: "BUY TICKETS",
-  },
-  {
-    date: "Fri Nov 29 2024",
-    venue: "Moscow Center",
-    location: "San Francisco, CA",
-    button: "BUY TICKETS",
-  },
-  {
-    date: "Wed Dec 18 2024",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-    button: "BUY TICKETS",
-  },
-];
+//   {
+//     date: "Sat Oct 12 2024",
+//     venue: "View Lounge",
+//     location: "San Francisco, CA",
+//     button: "BUY TICKETS",
+//   },
+//   {
+//     date: "Sat Nov 16 2024",
+//     venue: "Hyatt Agency",
+//     location: "San Francisco, CA",
+//     button: "BUY TICKETS",
+//   },
+//   {
+//     date: "Fri Nov 29 2024",
+//     venue: "Moscow Center",
+//     location: "San Francisco, CA",
+//     button: "BUY TICKETS",
+//   },
+//   {
+//     date: "Wed Dec 18 2024",
+//     venue: "Press Club",
+//     location: "San Francisco, CA",
+//     button: "BUY TICKETS",
+//   },
+// ];
 
-function addShows() {
-  let Containermain = document.querySelector(".shows");
+const API_KEY = "25731c93-dde1-495b-a9b1-23672fef91df";
 
+const newInstance = new BandSiteApi(API_KEY);
+
+let Containermain = document.querySelector(".shows");
+
+function addShows(showdates) {
+  Containermain.innerHTML = "";
   // allShows.forEach((show) => {
   //header
   let showHeader = document.createElement("h3");
@@ -50,7 +55,7 @@ function addShows() {
   showHeader.textContent = "Shows";
   Containermain.appendChild(showHeader);
 
-  allShows.forEach((show) => {
+  showdates.forEach((show) => {
     // console.log(allShows);
     let showContainer = document.createElement("article");
     showContainer.classList.add("shows__container");
@@ -100,13 +105,12 @@ function addShows() {
     //button
     let showButton = document.createElement("button");
     showButton.classList.add("shows__button");
-    showButton.textContent = `${show.button}`;
+    showButton.textContent = `BUY TICKETS`;
     showContainer.appendChild(showButton);
 
     Containermain.appendChild(showContainer);
   });
 }
-addShows();
 //select all for the main container
 let showsContainer = document.querySelectorAll(".shows__container");
 //function - loop throiugh and remove the class for all shows and add when the event happens
@@ -117,3 +121,15 @@ showsContainer.forEach((item) => {
     item.classList.add("clicked");
   });
 });
+
+async function dateShows() {
+  try {
+    const showdates = await newInstance.getShows();
+    // console.log("shows are displaying", showdates);
+
+    addShows(showdates);
+  } catch (error) {
+    console.log(error);
+  }
+}
+dateShows();

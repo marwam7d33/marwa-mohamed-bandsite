@@ -1,7 +1,3 @@
-// You must have an array in JavaScript with 3 default comment objects to start.
-//Comments must have a name, a timestamp, and the comment text.
-console.log("I'm connected");
-
 let allComments = [
   {
     name: "Victor Pinto",
@@ -24,13 +20,18 @@ let allComments = [
       "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
   },
 ];
-// You must have a function that takes in one comment object as a parameter and displays it on the page using JavaScript DOM manipulation.
-//create a function/ create element then assign a class
 
-// displayComment(allComments[i]);
-//maincontainer
+// GET & POST REQUESTS fnxns defined in band-site-api
+//new instnace from class band-site
+const API_KEY = "25731c93-dde1-495b-a9b1-23672fef91df";
+
+const newInstance = new BandSiteApi(API_KEY);
+
+//maincontainer - where we're displaying/adding the comments
+let mainContainer = document.querySelector(".comments");
+
 function addComments(comments) {
-  let mainContainer = document.querySelector(".comments");
+  mainContainer.innerHTML = "  ";
 
   comments.forEach((comment) => {
     //wrap each comment object in a div otherwise just first object will be displayed
@@ -78,13 +79,26 @@ function addComments(comments) {
     mainContainer.appendChild(commentDiv);
   });
 }
-addComments(allComments);
+
+//get request
+async function displayComments() {
+  const comments = await newInstance.getComments();
+  console.log("these are the comments", comments);
+
+  //if the functiion above displays the comments proceed with addcomments()fnxn
+  if (comments) {
+    addComments(comments);
+  } else {
+    console.log("you're comments are not displaying");
+  }
+}
+displayComments();
 
 // You must use an HTML Form with the following functionality:
 // That submits using the addEventListener
 let formSubmit = document.querySelector(".forms");
 
-formSubmit.addEventListener("submit", (event) => {
+formSubmit.addEventListener("submit", async (event) => {
   event.preventDefault(); //Prevents the page from reloading
   console.log("you submitted the form"); // working
 
@@ -95,17 +109,32 @@ formSubmit.addEventListener("submit", (event) => {
     name: event.target.forms__name.value,
     comment: event.target.forms__comment.value,
   };
-  // Pushes a new comment object to an array of comments
-  allComments.unshift(commentNew);
-  // Clears all comments from the page
 
-  let mainContainer = document.querySelector(".comments");
-  mainContainer.textContent = "  ";
+  //posting new comments
+  try {
+    const postedComment = await newInstance.postComment(commentNew);
+    console.log("comments are posted", postedComment);
 
-  // Clears the input fields after submitting a new comment
-  event.target.forms__name.value = "";
-  event.target.forms__comment.value = "";
-
-  // Re-renders to the page all comments from the comment array
-  addComments(allComments);
+    //comment at the top
+    allComments.unshift(postedComment);
+    addComments(allComments);
+    //   // Clears the input fields after submitting a new comment
+    event.target.forms__name.value = "";
+    event.target.forms__comment.value = "";
+  } catch (error) {
+    console.log(error);
+  }
 });
+
+//   // Clears all comments from the page
+//   let formContainer = document.querySelector(".forms");
+//   formContainer.textContent = "  ";
+
+//   // Clears the input fields after submitting a new comment
+//   event.target.forms__name.value = "";
+//   event.target.forms__comment.value = "";
+// } catch (error) {
+//   console.log(error);
+// }
+
+// Re-renders to the page all comments from the comment array
