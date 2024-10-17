@@ -4,8 +4,6 @@
 // // The constructor must store the API key parameter in an instance property (e.g. this.apiKey).
 // // The constructor must store the base API URL in an instance property (e.g. this.baseUrl). This property can be set to a hardcoded string, as it is not passed as a parameter.
 
-// const API_KEY = "25731c93-dde1-495b-a9b1-23672fef91df";
-
 class BandSiteApi {
   constructor(apikey) {
     this.apiKey = apikey;
@@ -17,17 +15,9 @@ class BandSiteApi {
 
   async postComment(comment) {
     try {
-      //      make sure when .post  Required Request Headers
-      // Content-Type: application/json **
-
-      const response = await axios.post(
-        `${this.baseurl}/comments?api_key=${this.apiKey}`,
-        comment,
-        { "Content-Type": "application/json" }
-      );
-      //   { Headers: { "Content-Type": "application/json" } }
-      // );
-      // console.log("posted comments", response.data);
+      const response = await axios.post(`${this.baseurl}/comments?api_key=${this.apiKey}`, comment, {
+        "Content-Type": "application/json",
+      });
       return response.data;
     } catch (error) {
       console.log(error);
@@ -37,12 +27,9 @@ class BandSiteApi {
   // The getComments method must sort the array of comments from the API, returning them in order from newest to oldest.
   async getComments() {
     try {
-      const response = await axios.get(
-        `${this.baseurl}/comments?api_key=${this.apiKey}`
-      );
-      // console.log("get the comments", response.data);
+      const response = await axios.get(`${this.baseurl}/comments?api_key=${this.apiKey}`);
       return response.data.sort((a, b) => {
-        b - a; //question on sort
+        return b.timestamp - a.timestamp;
       });
     } catch (error) {
       console.log(error);
@@ -53,39 +40,10 @@ class BandSiteApi {
   // The getShows method must return the array of show data objects returned from the API.
   async getShows() {
     try {
-      const response = await axios.get(
-        `${this.baseurl}/showdates?api_key=${this.apiKey}`
-      );
-      // console.log("show dates", response.data);
+      const response = await axios.get(`${this.baseurl}/showdates?api_key=${this.apiKey}`);
       return response.data;
     } catch (error) {
       console.log(error);
     }
   }
 }
-
-// const newInstance = new BandSiteApi(API_KEY);
-// console.log(newInstance);
-//function that displayscommnets ****************
-// async function displayComments() {
-//   const comments = await newInstance.getComments();
-//   console.log("these are the comments", comments);
-// }
-// displayComments();
-
-// // fnxn post comments ****************
-
-// async function postedComments() {
-//   const postedComment = await newInstance.postComment();
-//   console.log("comments are posted", postedComment);
-// }
-// //inoke the fnxn
-// postedComments();
-
-// // fxnn for  show dates ****************
-
-// async function dateShows() {
-//   const showdates = await newInstance.getShows();
-//   console.log("dates are displaying", showdates);
-// }
-// dateShows();

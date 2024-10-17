@@ -22,6 +22,7 @@ body {
   font-weight: 400;
   font-size: 0.8125rem;
   color: #323232;
+  margin: 0;
 }
 
 .header {
@@ -538,10 +539,21 @@ body {
   line-height: 25px;
 }
 .forms__container {
-  padding-left: 20px;
+  margin: 0 1rem;
+  border-bottom: solid #afafaf 2px;
   padding-bottom: 0.9375rem;
   display: flex;
   flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .forms__container {
+    padding: 0 8rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .forms__container {
+    padding: 0 25%;
+  }
 }
 .forms__avatar {
   -o-object-fit: cover;
@@ -554,7 +566,7 @@ body {
   padding-left: 15px;
   display: flex;
   flex-direction: column;
-  width: 70%;
+  flex-grow: 1;
 }
 .forms__input-container {
   color: #afafaf;
@@ -568,7 +580,7 @@ body {
   font-family: "avenir";
   color: black;
   padding-top: 0;
-  width: 80%;
+  width: 100%;
   border-radius: 4px;
   padding: 12px;
 }
@@ -580,7 +592,7 @@ body {
   font-weight: 600;
   background-color: #323232;
   border-radius: 4px;
-  width: 90%;
+  width: 100%;
   height: 2.5rem;
 }
 @media screen and (min-width: 768px) {
@@ -601,9 +613,7 @@ body {
   color: #ffffff;
 }
 .forms__fieldset {
-  width: 100vw;
   display: flex;
-  border-bottom: solid #afafaf 2px;
   padding-bottom: 1.25rem;
 }
 @media screen and (min-width: 768px) {
@@ -614,10 +624,7 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .forms__fieldset {
-    width: 50%;
     display: flex;
-    position: relative;
-    left: 310px;
   }
 }
 .forms__header {
@@ -635,15 +642,21 @@ body {
 .comments {
   display: flex;
   flex-direction: column;
+  padding: 0 1rem;
 }
 @media screen and (min-width: 768px) {
   .comments {
-    padding-left: 58px;
+    padding: 0 8rem;
   }
+}
+.comments__wrapper {
+  border-bottom: solid #afafaf 2px;
+  display: flex;
+  gap: 1rem;
 }
 @media screen and (min-width: 1280px) {
   .comments__wrapper {
-    width: 50vw;
+    margin: 0 25%;
   }
 }
 .comments__date {
@@ -653,7 +666,6 @@ body {
 }
 .comments__container-inner {
   display: flex;
-  padding: 20px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -663,19 +675,16 @@ body {
   border-bottom: solid #afafaf 2px;
   margin-bottom: 20px;
 }
-@media screen and (min-width: 768px) {
-  .comments__content-outer {
-    display: flex;
-    padding-left: 25px;
-    flex-direction: row;
-    justify-content: center;
-  }
-}
 .comments__avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   background-color: #e0e0e0;
+  position: relative;
+  top: 0.5rem;
+}
+.comments__content-wrap {
+  flex: 1;
 }
 .comments__content {
   width: 100%;
@@ -683,14 +692,6 @@ body {
 @media screen and (min-width: 768px) {
   .comments__content {
     display: flex;
-    width: 60%;
     line-height: 20px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .comments__wrapper {
-    position: relative;
-    left: 220px;
-    width: 61%;
   }
 }/*# sourceMappingURL=bio.css.map */
