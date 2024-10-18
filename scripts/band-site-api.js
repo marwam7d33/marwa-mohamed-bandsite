@@ -15,9 +15,13 @@ class BandSiteApi {
 
   async postComment(comment) {
     try {
-      const response = await axios.post(`${this.baseurl}/comments?api_key=${this.apiKey}`, comment, {
-        "Content-Type": "application/json",
-      });
+      const response = await axios.post(
+        `${this.baseurl}/comments?api_key=${this.apiKey}`,
+        comment,
+        {
+          "Content-Type": "application/json",
+        }
+      );
       return response.data;
     } catch (error) {
       console.log(error);
@@ -27,7 +31,9 @@ class BandSiteApi {
   // The getComments method must sort the array of comments from the API, returning them in order from newest to oldest.
   async getComments() {
     try {
-      const response = await axios.get(`${this.baseurl}/comments?api_key=${this.apiKey}`);
+      const response = await axios.get(
+        `${this.baseurl}/comments?api_key=${this.apiKey}`
+      );
       return response.data.sort((a, b) => {
         return b.timestamp - a.timestamp;
       });
@@ -40,7 +46,10 @@ class BandSiteApi {
   // The getShows method must return the array of show data objects returned from the API.
   async getShows() {
     try {
-      const response = await axios.get(`${this.baseurl}/showdates?api_key=${this.apiKey}`);
+      const response = await axios.get(
+        `${this.baseurl}/showdates?api_key=${this.apiKey}`
+      );
+      console.log(response.data);
       return response.data;
     } catch (error) {
       console.log(error);

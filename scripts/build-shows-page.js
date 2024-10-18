@@ -71,7 +71,7 @@ function addShows(showdates) {
     showDate.appendChild(pDateLabel);
 
     let pDate = document.createElement("p");
-    pDate.textContent = `${show.date}`;
+    pDate.textContent = new Date(show.date).toLocaleDateString();
     pDate.classList.add("shows__date-info");
     showDate.appendChild(pDate);
 
@@ -86,7 +86,7 @@ function addShows(showdates) {
     showVenue.appendChild(pVenueLabel);
 
     let pVenue = document.createElement("p");
-    pVenue.textContent = `${show.venue}`;
+    pVenue.textContent = show.place;
     showVenue.appendChild(pVenue);
 
     //location
@@ -109,23 +109,32 @@ function addShows(showdates) {
     showContainer.appendChild(showButton);
 
     Containermain.appendChild(showContainer);
+
+    let showsContainer = document.querySelectorAll(".shows__container");
+    //function - loop throiugh and remove the class for all shows and add when the event happens
+    showsContainer.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        showsContainer.forEach((show) => show.classList.remove("clicked"));
+        item.classList.add("clicked");
+      });
+    });
   });
 }
 //select all for the main container
-let showsContainer = document.querySelectorAll(".shows__container");
-//function - loop throiugh and remove the class for all shows and add when the event happens
-showsContainer.forEach((item) => {
-  item.addEventListener("click", (e) => {
-    showsContainer.forEach((show) => show.classList.remove("clicked"));
+// let showsContainer = document.querySelectorAll(".shows__container");
+// //function - loop throiugh and remove the class for all shows and add when the event happens
+// showsContainer.forEach((item) => {
+//   item.addEventListener("click", (e) => {
+//     showsContainer.forEach((show) => show.classList.remove("clicked"));
 
-    item.classList.add("clicked");
-  });
-});
+//     item.classList.add("clicked");
+//   });
+// });
 
 async function dateShows() {
   try {
     const showdates = await newInstance.getShows();
-    // console.log("shows are displaying", showdates);
+    console.log("shows are displaying", showdates);
 
     addShows(showdates);
   } catch (error) {

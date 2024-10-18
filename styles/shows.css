@@ -395,9 +395,11 @@ body {
 }
 .shows__container:hover {
   background-color: #fafafa;
+  transform: scale(2.5);
 }
 .shows__container.clicked {
   background-color: #e1e1e1;
+  transform: background 0.1s ease scale(1);
 }
 @media screen and (min-width: 768px) {
   .shows__container {

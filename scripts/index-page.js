@@ -23,9 +23,9 @@ function addComments(comments) {
     avatar.classList.add("comments__avatar");
     commentDiv.appendChild(avatar);
 
-    let content = document.createElement('div')
-    content.classList.add('comments__content-wrap')
-    commentDiv.appendChild(content)
+    let content = document.createElement("div");
+    content.classList.add("comments__content-wrap");
+    commentDiv.appendChild(content);
 
     //header name container and assigning
     let commentHeader = document.createElement("h3");
@@ -36,7 +36,9 @@ function addComments(comments) {
     //date
     let commentDate = document.createElement("p");
     commentDate.classList.add("comments__date");
-    commentDate.textContent = `${new Date(comment.timestamp).toLocaleDateString()}`;
+    commentDate.textContent = `${new Date(
+      comment.timestamp
+    ).toLocaleDateString()}`;
     innerCommentContainer.appendChild(commentDate);
 
     //appenidng inner to wrapper
@@ -92,6 +94,8 @@ formSubmit.addEventListener("submit", async (event) => {
     //   // Clears the input fields after submitting a new comment
     event.target.forms__name.value = "";
     event.target.forms__comment.value = "";
+
+    displayComments();
   } catch (error) {
     console.log(error);
   }

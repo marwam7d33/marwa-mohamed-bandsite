@@ -148,10 +148,12 @@
 
     &:hover {
       background-color: $Alabaster;
+      transform: scale(2.5);
     }
 
     &.clicked {
       background-color: $Mercury;
+      transform: background 0.1s ease scale(1);
     }
 
     @include tablet {
