@@ -26,6 +26,8 @@ body {
 }
 
 .header {
+  padding: 0.5rem;
+  gap: 1rem;
   background-color: #323232;
   text-decoration: none;
   font-size: 1.125rem;
@@ -244,10 +246,16 @@ body {
   color: #ffffff;
   font-family: "Avenir";
 }
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 @media screen and (min-width: 1280px) {
   .hero__text {
     display: flex;
     flex-direction: row;
+    align-items: center;
   }
 }
 .hero__image {
@@ -281,7 +289,7 @@ body {
   left: 0;
   right: 0;
   background-color: #323232;
-  opacity: 50%;
+  opacity: 0.5;
   z-index: 1;
   width: 100%;
   height: 100%;
@@ -302,7 +310,6 @@ body {
 @media screen and (min-width: 768px) {
   .hero__title {
     margin-top: 23px;
-    font-weight: 600;
     font-size: 60px;
     line-height: 68px;
   }
@@ -310,7 +317,6 @@ body {
 @media screen and (min-width: 768px) and (min-width: 1280px) {
   .hero__title {
     padding-right: 109px;
-    font-size: 60px;
   }
 }
 .hero__title__container {
@@ -326,12 +332,10 @@ body {
 @media screen and (min-width: 768px) and (min-width: 1280px) {
   .hero__title__container {
     padding-left: 9rem;
-    display: flex;
   }
 }
 .hero__header {
   font-weight: 400;
-  font-size: 600;
   display: flex;
   flex-direction: row;
   color: #ffffff;
@@ -342,42 +346,33 @@ body {
 }
 @media screen and (min-width: 768px) {
   .hero__header {
-    font-weight: 600;
-    font-size: 21px;
     line-height: 1px;
   }
 }
 
 .music {
+  padding: 2rem 1rem;
   display: flex;
 }
 @media screen and (min-width: 768px) {
   .music {
     padding-left: 20px;
-    display: flex;
   }
 }
 .music__link {
-  position: relative;
-  top: 0;
-  left: 10px;
-  width: 88%;
-  height: 9rem;
+  width: 100%;
   z-index: 4;
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 @media screen and (min-width: 768px) {
   .music__link {
     width: 55%;
     height: 14rem;
-    z-index: 4;
   }
 }
 @media screen and (min-width: 1280px) {
   .music__link {
     width: 33%;
-    display: flex;
-    flex-direction: row;
   }
 }
 
@@ -386,6 +381,7 @@ body {
   font-family: "avenir";
 }
 .shows__container {
+  border-bottom: solid #afafaf 2px;
   display: flex;
   padding: 0.75rem;
   border-radius: 0.25rem;
@@ -395,17 +391,12 @@ body {
 }
 .shows__container:hover {
   background-color: #fafafa;
-  transform: scale(2.5);
 }
 .shows__container.clicked {
   background-color: #e1e1e1;
-  transform: background 0.1s ease scale(1);
 }
 @media screen and (min-width: 768px) {
   .shows__container {
-    display: flex;
-    padding: 0.75rem;
-    border-radius: 0.25rem;
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
@@ -414,8 +405,6 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .shows__container {
-    left: 310px;
-    position: relative;
     width: 60%;
   }
 }
@@ -424,11 +413,11 @@ body {
   background-color: #323232;
   color: white;
   padding: 10px 15px;
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 @media screen and (min-width: 768px) {
   .shows__button {
-    width: 10rem;
+    width: auto;
   }
 }
 .shows__container div {
@@ -451,11 +440,6 @@ body {
 }
 @media screen and (min-width: 1280px) {
   .shows__header {
-    position: relative;
-    left: 51px;
-    top: 78px;
     font-size: 42px;
-    font-weight: 600;
-    color: black;
   }
 }/*# sourceMappingURL=shows.css.map */

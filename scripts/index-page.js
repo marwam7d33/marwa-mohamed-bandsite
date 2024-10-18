@@ -1,6 +1,6 @@
 // GET & POST REQUESTS fnxns defined in band-site-api
 //new instnace from class band-site
-const API_KEY = "6ea3f443-c737-4013-a26e-9b162465c3d3";
+const API_KEY = "0a9cc29e-8be7-4c26-9ca0-0f5ea09030f9";
 
 const newInstance = new BandSiteApi(API_KEY);
 //maincontainer - where we're displaying/adding the comments
