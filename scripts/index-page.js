@@ -6,6 +6,8 @@ const newInstance = new BandSiteApi(API_KEY);
 //maincontainer - where we're displaying/adding the comments
 let mainContainer = document.querySelector(".comments");
 
+
+
 function addComments(comments) {
   mainContainer.innerHTML = "  ";
 
