@@ -302,9 +302,6 @@ body {
   flex-direction: column;
   justify-content: center;
   color: #ffffff;
-  position: relative;
-  top: 0.25rem;
-  left: 0.625rem;
   z-index: 2;
 }
 @media screen and (min-width: 768px) {
@@ -322,6 +319,7 @@ body {
 .hero__title__container {
   display: flex;
   flex-direction: column;
+  padding: 0 3rem;
 }
 @media screen and (min-width: 768px) {
   .hero__title__container {
@@ -339,9 +337,6 @@ body {
   display: flex;
   flex-direction: row;
   color: #ffffff;
-  position: relative;
-  top: 1.3rem;
-  left: 0.625rem;
   z-index: 2;
 }
 @media screen and (min-width: 768px) {
