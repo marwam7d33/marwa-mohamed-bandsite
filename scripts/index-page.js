@@ -82,8 +82,6 @@ formSubmit.addEventListener("submit", async (event) => {
     const postedComment = await newInstance.postComment(commentNew);
     console.log("comments are posted", postedComment);
 
-    //comment at the top
-    //   // Clears the input fields after submitting a new comment
     event.target.forms__name.value = "";
     event.target.forms__comment.value = "";
 

@@ -13,7 +13,6 @@ function addShows(showdates) {
   Containermain.appendChild(showHeader);
 
   showdates.forEach((show) => {
-    // console.log(allShows);
     let showContainer = document.createElement("article");
     showContainer.classList.add("shows__container");
 
@@ -69,7 +68,7 @@ function addShows(showdates) {
     Containermain.appendChild(showContainer);
 
     let showsContainer = document.querySelectorAll(".shows__container");
-    //function - loop throiugh and remove the class for all shows and add when the event happens
+    //function - loop through and remove the class for all shows / add when the event happens
     showsContainer.forEach((item) => {
       item.addEventListener("click", (e) => {
         showsContainer.forEach((show) => show.classList.remove("clicked"));

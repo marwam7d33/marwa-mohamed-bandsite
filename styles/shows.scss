@@ -16,8 +16,7 @@
     }
   }
   &__image {
-    width: 100%;
-    height: 50%;
+    height: 22rem;
     background-image: url(/assets/Images/hero-shows.jpg);
     background-size: cover;
     display: flex;
@@ -52,7 +51,7 @@
   &__title {
     font-weight: 600;
     display: flex;
-    font-size: 4.0625rem;
+    font-size: 2rem;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
@@ -72,11 +71,12 @@
     &__container {
       display: flex;
       flex-direction: column;
-      padding: 5rem 2rem;
+      padding: 0 1rem;
 
       @include tablet {
-        padding-left: 32px;
-        padding-bottom: 29px;
+        padding-top: 3.6875rem;
+        padding-left: 2rem;
+        padding-bottom: 0.8125rem;
       }
     }
   }
@@ -100,8 +100,8 @@
 }
 
 .music {
-  padding: 2rem 1rem;
   display: flex;
+  padding: 0 1rem;
   @include tablet {
     padding: 0rem 2.5rem;
   }
@@ -142,6 +142,7 @@
     }
 
     @include tablet {
+      padding: 0;
       align-items: center;
       flex-direction: row;
       justify-content: space-around;

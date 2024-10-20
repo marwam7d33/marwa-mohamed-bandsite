@@ -275,18 +275,9 @@
   }
   &__container {
     margin: 0 1rem;
-    // border-bottom: solid $Silver 2px;
     padding-bottom: 0.9375rem;
     display: flex;
     flex-direction: column;
-
-    // @include tablet {
-
-    // }
-
-    @include desktop {
-      // padding: 0 25%;
-    }
   }
   &__avatar {
     object-fit: cover;
@@ -410,7 +401,6 @@
     align-items: center;
   }
   &__content-outer {
-    // padding-left: 25px;
     border-bottom: solid $Silver 2px;
     margin-bottom: 20px;
   }
