@@ -6,7 +6,6 @@ let Containermain = document.querySelector(".shows");
 
 function addShows(showdates) {
   Containermain.innerHTML = "";
-  // allShows.forEach((show) => {
   //header
   let showHeader = document.createElement("h3");
   showHeader.classList.add("shows__header");
@@ -29,7 +28,8 @@ function addShows(showdates) {
     showDate.appendChild(pDateLabel);
 
     let pDate = document.createElement("p");
-    pDate.textContent = new Date(show.date).toLocaleDateString();
+    let fullDate = new Date(show.date);
+    pDate.textContent = String(fullDate).substring(0, 15);
     pDate.classList.add("shows__date-info");
     showDate.appendChild(pDate);
 
@@ -78,16 +78,6 @@ function addShows(showdates) {
     });
   });
 }
-//select all for the main container
-// let showsContainer = document.querySelectorAll(".shows__container");
-// //function - loop throiugh and remove the class for all shows and add when the event happens
-// showsContainer.forEach((item) => {
-//   item.addEventListener("click", (e) => {
-//     showsContainer.forEach((show) => show.classList.remove("clicked"));
-
-//     item.classList.add("clicked");
-//   });
-// });
 
 async function dateShows() {
   try {

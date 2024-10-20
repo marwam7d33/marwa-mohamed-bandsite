@@ -1,6 +1,5 @@
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1280px;
-// $mobile-breakpoint: 320px;
 
 // setting Avenir fonts
 @font-face {
@@ -38,14 +37,11 @@ $White: #ffffff;
 }
 
 // DESKTOP & TABLET TEXT STYLES MOBILE TEXT STYLES
-// Text size: 60px | Line height: 68px | Text weight: Bold 700
-// Page Header
 @mixin main-header {
   font-size: 60px;
   line-height: 68px;
   font-weight: 700;
 }
-// Text size: 36px | Line height: 44px | Text weight: 700
 // Section Header
 @mixin main-section-header {
   font-size: 36px;
@@ -53,7 +49,6 @@ $White: #ffffff;
   font-weight: 700;
 }
 
-// Text size: 24px | Line height: 32px | Text weight: Demi 600
 // Subheader
 
 @mixin main-subheader {
@@ -62,7 +57,6 @@ $White: #ffffff;
   font-weight: 600;
 }
 
-// Text size: 14px | Line height: 22px | Text weight: Regular 400
 // Body Copy
 @mixin main-body {
   font-size: 14px;
@@ -70,7 +64,6 @@ $White: #ffffff;
   font-weight: 400;
 }
 
-// Text size: 14px | Line height: 20px | Text weight: Regular 400
 // Footer Copy
 @mixin main-footer {
   font-size: 14px;

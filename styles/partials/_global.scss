@@ -98,7 +98,6 @@ body {
 .footer {
   @include tablet {
     position: relative;
-    // width: 100%;
     display: flex;
     font-size: 0.625rem;
     line-height: 1.25rem;
@@ -169,7 +168,6 @@ body {
   }
   &__company {
     @include tablet {
-      // font-weight: 600;
       @include main-footer;
     }
   }

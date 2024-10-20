@@ -6,8 +6,6 @@ const newInstance = new BandSiteApi(API_KEY);
 //maincontainer - where we're displaying/adding the comments
 let mainContainer = document.querySelector(".comments");
 
-
-
 function addComments(comments) {
   mainContainer.innerHTML = "  ";
 
@@ -38,12 +36,10 @@ function addComments(comments) {
     //date
     let commentDate = document.createElement("p");
     commentDate.classList.add("comments__date");
-    commentDate.textContent = `${new Date(
-      comment.timestamp
-    ).toLocaleDateString()}`;
+    commentDate.textContent = new Date(comment.timestamp).toLocaleDateString();
     innerCommentContainer.appendChild(commentDate);
 
-    //appenidng inner to wrapper
+    //appending inner to wrapper
     content.appendChild(innerCommentContainer);
 
     //comment
@@ -62,7 +58,6 @@ async function displayComments() {
   const comments = await newInstance.getComments();
   console.log("these are the comments", comments);
 
-  //if the functiion above displays the comments proceed with addcomments()fnxn
   if (comments) {
     addComments(comments);
   } else {
@@ -71,18 +66,13 @@ async function displayComments() {
 }
 displayComments();
 
-// You must use an HTML Form with the following functionality:
-// That submits using the addEventListener
 let formSubmit = document.querySelector(".forms");
 
 formSubmit.addEventListener("submit", async (event) => {
-  event.preventDefault(); //Prevents the page from reloading
+  event.preventDefault();
   console.log("you submitted the form"); // working
 
-  // Prevents the page from reloading when submitting a new comment
-  // Constructs a new comment object
   let commentNew = {
-    //event.target.name.value
     name: event.target.forms__name.value,
     comment: event.target.forms__comment.value,
   };
@@ -102,16 +92,3 @@ formSubmit.addEventListener("submit", async (event) => {
     console.log(error);
   }
 });
-
-//   // Clears all comments from the page
-//   let formContainer = document.querySelector(".forms");
-//   formContainer.textContent = "  ";
-
-//   // Clears the input fields after submitting a new comment
-//   event.target.forms__name.value = "";
-//   event.target.forms__comment.value = "";
-// } catch (error) {
-//   console.log(error);
-// }
-
-// Re-renders to the page all comments from the comment array
